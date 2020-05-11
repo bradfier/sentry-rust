@@ -2,6 +2,7 @@
 members = [
     "sentry",
     "sentry-actix",
+    "sentry-contexts",
     "sentry-core",
     "sentry-error-chain",
     "sentry-failure",
