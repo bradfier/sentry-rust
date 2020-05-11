@@ -52,7 +52,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     )?;
 
     writeln!(f, "/// The platform identifier.")?;
-    writeln!(f, "pub const PLATFORM: &str = \"{}\";", platform)?;
+    writeln!(
+        f,
+        "#[allow(unused)] pub const PLATFORM: &str = \"{}\";",
+        platform
+    )?;
     writeln!(f, "/// The CPU architecture identifier.")?;
     writeln!(f, "pub const ARCH: &str = \"{}\";", arch)?;
 

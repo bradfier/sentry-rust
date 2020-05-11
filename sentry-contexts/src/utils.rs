@@ -61,21 +61,6 @@ mod model_support {
     }
 }
 
-/// Returns the model identifier.
-pub fn device_model() -> Option<String> {
-    model_support::get_model()
-}
-
-/// Returns the model family identifier.
-pub fn device_family() -> Option<String> {
-    model_support::get_family()
-}
-
-/// Returns the CPU architecture.
-pub fn cpu_arch() -> Option<String> {
-    Some(ARCH.into())
-}
-
 /// Returns the server name (hostname) if available.
 pub fn server_name() -> Option<String> {
     hostname::get().ok().and_then(|s| s.into_string().ok())
@@ -131,9 +116,9 @@ pub fn rust_context() -> Context {
 /// Returns the device context.
 pub fn device_context() -> Context {
     DeviceContext {
-        model: device_model(),
-        family: device_family(),
-        arch: cpu_arch(),
+        model: model_support::get_model(),
+        family: model_support::get_family(),
+        arch: Some(ARCH.into()),
         ..Default::default()
     }
     .into()

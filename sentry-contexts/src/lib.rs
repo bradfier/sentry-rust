@@ -18,7 +18,6 @@
 //! ```
 
 #![deny(missing_docs)]
-#![deny(unsafe_code)]
 
 mod integration;
 mod utils;

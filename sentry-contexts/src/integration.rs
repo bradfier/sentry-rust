@@ -58,13 +58,13 @@ impl Integration for ContextIntegration {
             event
                 .contexts
                 .entry("rust".to_string())
-                .or_insert_with(|| rust_context());
+                .or_insert_with(rust_context);
         }
         if self.add_device {
             event
                 .contexts
                 .entry("device".to_string())
-                .or_insert_with(|| device_context());
+                .or_insert_with(device_context);
         }
 
         Some(event)
